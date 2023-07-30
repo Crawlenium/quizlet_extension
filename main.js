@@ -8,13 +8,15 @@ document.getElementById('start').addEventListener('click', () => {
                 let question = element.children[0].children[0].children[0].children[0].innerText;
                 let answer = element.children[1].children[0].children[0].children[0].textContent;
     
-                questionAndOptions = question.split("\n\n");
+                let questionAndOptions = question.split("\n\n");
                 question = questionAndOptions[0]
-                options = questionAndOptions[1].split("\n")
+                options = questionAndOptions[1]
+                questionAndOptions = question + "\n" + options
     
-                return [questionAndOptions, options, answer].join("#")
+                return [questionAndOptions, answer].join("~")
             }
             catch{
+                console.log(element);
                 return ""
             }
         }
@@ -31,7 +33,7 @@ document.getElementById('start').addEventListener('click', () => {
         }
 
         const link = document.createElement("a");
-        const file = new Blob([info.join("\n\n")], { type: 'text/plain' });
+        const file = new Blob([info.join("#")], { type: 'text/plain' });
         link.href = URL.createObjectURL(file);
         link.download = "questions.txt";
         link.click();
