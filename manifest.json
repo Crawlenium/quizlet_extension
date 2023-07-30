@@ -1,0 +1,19 @@
+{
+    "name": "Quizlet",
+    "description": "Automatically get questions in Quizlet",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "icons": {
+        "16": "images/quizlet.png",
+        "32": "images/quizlet.png",
+        "48": "images/quizlet.png",
+        "128": "images/quizlet.png"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
