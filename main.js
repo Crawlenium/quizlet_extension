@@ -13,11 +13,12 @@ document.getElementById('start').addEventListener('click', () => {
                 options = questionAndOptions[1]
                 questionAndOptions = question + "\n" + options
     
-                return [questionAndOptions, answer].join("~")
+                // return [questionAndOptions, answer].join("~")
+                return [questionAndOptions, answer].join("\n")
             }
             catch{
                 console.log(element);
-                return ""
+                return "\n"
             }
         }
 
@@ -33,7 +34,9 @@ document.getElementById('start').addEventListener('click', () => {
         }
 
         const link = document.createElement("a");
-        const file = new Blob([info.join("#")], { type: 'text/plain' });
+        // const file = new Blob([info.join("#")], { type: 'text/plain' });
+        const file = new Blob([info.join("\n\n")], { type: 'text/plain' });
+
         link.href = URL.createObjectURL(file);
         link.download = "questions.txt";
         link.click();
